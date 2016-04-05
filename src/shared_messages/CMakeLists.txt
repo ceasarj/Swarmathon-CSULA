@@ -8,6 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   sensor_msgs
   std_msgs
+  geometry_msgs
   message_generation
 )
 
@@ -46,7 +47,11 @@ find_package(catkin REQUIRED COMPONENTS
 
 ## Generate messages in the 'msg' folder
 add_message_files(
-   FILES TagsImage.msg
+   FILES 
+   TagsImage.msg
+   RoverMsg.msg
+   TagMsg.msg
+   DebugMsg.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -64,7 +69,7 @@ add_message_files(
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages( DEPENDENCIES sensor_msgs std_msgs )
+generate_messages( DEPENDENCIES sensor_msgs std_msgs geometry_msgs )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -98,7 +103,7 @@ generate_messages( DEPENDENCIES sensor_msgs std_msgs )
 catkin_package(
 #  INCLUDE_DIRS include 
 #  LIBRARIES shared_messages
-  CATKIN_DEPENDS roscpp message_runtime sensor_msgs std_msgs 
+  CATKIN_DEPENDS roscpp message_runtime sensor_msgs std_msgs geometry_msgs
 #  DEPENDS system_lib
 )
 
